@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+      <form method="POST">
+          {% csrf_token %}
+          <table class="table table-bordered table-light">
+              <form>
+                  <th>firstname</th>
+                  <td>{{ user_form.first_name }}</td>
+                  <th>lastname</th>
+                  <td>{{ user_form.last_name }}</td>
+                  <th>city</th>
+                  <td>{{ user_form.city }}</td>
+              </form>
+
+          </table>
+          <br>
+          <button type="submit" class="btn btn-warning float-right">Update Employee</button>
+      </form>
+    <div class="text-left">
+    <form method="POST" action="/logout/">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Logout">
+    </form>
+    </div>
+{% endblock content %}

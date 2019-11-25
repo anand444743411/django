@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% csrf_token %}
+    <table class="table table-ligt table-bordered table-striped">
+    <tbody>
+    <a class="btn btn-blue" href="{% url 'change_password' %}">Click here to ChangePassword</a>
+    <tr>
+        <th>First Name</th>
+        <td>{{ user.first_name }}</td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td>{{ user.last_name }}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{ user.email }}</td>
+    </tr>
+     <tr>
+        <th>phonenumber</th>
+        <td>{{ user.phonenumber }}</td>
+    </tr>
+     <tr>
+        <th>city</th>
+        <td>{{ user.city }}</td>
+    </tr>
+     <tr>
+        <th>gender</th>
+        <td>{{ user.gender }}</td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="text-right">
+        <a class="btn btn-warning" href="{% url 'employee_edit' user.id %}">Edit</a>
+        <a class="btn btn-warning" href="{% url 'employee_delete' user.id %}">Delete</a>
+{#       <a class="btn btn-warning"  href="{% url 'employee_community' %}">Community</a>#}
+</div>
+    <div class="text-left">
+    <form method="POST" action="/logout/">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Logout">
+    </form>
+    </div>
+    <br>
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+</ul>
+{% endblock content %}
+
