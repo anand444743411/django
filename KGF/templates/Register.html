@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Forms</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<h1 align ="center">Emp Registration Form...!!!</h1>
+<div class ="container" align="center">
+    <form method = "post">
+        {{ form.as_p }}
+        <input type="submit" value="NewEmp" class="btn btn-success">
+        {% csrf_token %}
+    </form>
+</div>
+</body>
+</html>
